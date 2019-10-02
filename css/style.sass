@@ -1,0 +1,1397 @@
+@import 'vars'
+
+*
+  outline: none
+
+html,
+body
+  margin: 0
+  padding: 0
+  font-family: $proxima
+  font-size: 13px
+  color: $accent
+  // overflow-x: hidden
+  // height: 100%
+  position: relative
+
+body
+  overflow-x: hidden
+  height: 100%
+
+.header
+  color: #fff
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  z-index: 5
+  padding-top: 10px
+  padding-bottom: 10px
+  &:after
+    position: absolute
+    content: ''
+    left: 0
+    right: 0
+    top: 76px
+    height: 1px
+    background-color: rgba(255,255,255, .22)
+    z-index: 1
+  &-nav,
+  &-nav_sub
+    position: relative
+    margin: 0
+    padding: 0
+    list-style-type: none
+  &-nav
+    & > li
+      display: inline-block
+      position: relative
+      transition: ease all 150ms
+      z-index: 6
+      &:before
+        position: absolute
+        content: ''
+        bottom: 0
+        right: 100%
+        left: 0
+        height: 2px
+        background-color: #fff
+        transition: ease all 250ms
+        opacity: .5
+      &:hover
+        &:before
+          right: 0
+          opacity: 1
+        & > a
+          color: #c3c4c5
+      & > a
+        display: block
+        padding: 20px 12px 29px 12px
+        font-size: 15px
+        font-weight: 600
+        text-decoration: none
+        color: #fff
+    &_drop
+      &:hover
+        & .header-nav_sub
+          display: block
+    &_sub
+      display: none
+      position: absolute
+      top: 100%
+      left: 0
+      width: calc(100% + 25px)
+      background-color: rgba(255,255,255, .14)
+      padding: 15px 0
+      z-index: 5
+      & > li
+        position: relative
+        &:hover
+          &:before,
+          &:after
+            background-color: rgba(255,255,255, 1)
+        &:before,
+        &:after
+          position: absolute
+          content: ''
+          top: 10px
+          bottom: 10px
+          width: 2px
+          background-color: rgba(255,255,255, 0)
+          transition: ease all 150ms
+        &:after
+          right: 0
+          left: auto
+        &:hover
+          position: relative
+          & > a
+            color: #c3c4c5
+        & > a
+          display: block
+          text-align: center
+          color: #fff
+          text-decoration: none
+          padding: 8px 25px
+          font-weight: 600
+  & > .container
+    display: flex
+  &-item
+    position: relative
+    &:nth-of-type(1)
+      flex: 0 0 260px
+      max-width: 260px
+    &:nth-of-type(3)
+      flex: 0 0 200px
+      max-width: 200px
+    &:nth-of-type(2)
+      flex: 0 0 calc(100% - 460px)
+      max-width: calc(100% - 460px)
+  &-logo
+    &_link
+      position: relative
+      color: #fff
+      text-decoration: none
+      display: table
+      top: 0
+      z-index: 2
+      & > img
+        display: block
+      &:after
+        position: absolute
+        content: attr(title)
+        left: 100%
+        top: 12px
+        width: 150px
+      & strong
+        display: block
+        padding-top: 5px
+        text-align: center
+  &-top
+    position: relative
+    height: 768px
+    //overflow: hidden
+    color: #fff
+    & > .container-absolute
+      position: relative
+      padding-top: 270px
+      height: 100%
+      z-index: 1
+    &_item
+      position: absolute
+      right: 0
+      bottom: -120px
+    &::before
+      position: absolute
+      content: ''
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      background: #48aae6
+      background: -moz-linear-gradient(top, #0151aa 0%, #48aae6 100%)
+      background: -webkit-linear-gradient(top, #0151aa 0%, #48aae6 100%)
+      background: linear-gradient(to bottom, #0151aa 0%,#48aae6 100%)
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0151aa', endColorstr='#48aae6',GradientType=0 )
+      opacity: .83
+    &_additional
+      position: absolute
+      left: 0
+      bottom: 0
+      right: 0
+      width: 100%
+      z-index: 2
+    &_title
+      font-size: 2.95em
+      font-weight: 400
+      margin: 0
+      & strong
+        font-family: $proximaExBold
+  &-phone
+    margin-top: 8px
+    margin-bottom: 11px
+    & > a
+      position: relative
+      font-size: 1.6em
+      color: #fff
+      display: block
+      text-decoration: none
+      padding-left: 30px
+      &:before
+        position: absolute
+        content: ''
+        top: 3px
+        left: 0
+        width: 20px
+        height: 20px
+        background-image: url('../img/phone-number.png')
+      & b
+        font-family: $proximaExBold
+  &-callback
+    background-color: #fff
+    color: $accent
+    line-height: 45px
+    padding-left: 45px
+    padding-right: 30px
+    border-radius: 25px
+    display: table
+    cursor: pointer
+    position: relative
+    font-weight: 600
+    font-size: 1.1em
+    transition: ease-in-out all 250ms
+    z-index: 2
+    &:hover
+      transform: scale(1.05)
+      &:before
+        animation: callback .5s ease-in-out alternate
+    &:before
+      position: absolute
+      content: ''
+      top: 6px
+      left: -7px
+      width: 33px
+      height: 33px
+      background: #fff
+      background-image: url('../img/phone-callback.png')
+      background-repeat: no-repeat
+      background-position: 5px 5px
+      border-radius: 50%
+      box-shadow: 0 0 10px 1px $accent
+  &-advantage
+    position: relative
+    top: -10px
+    width: 56%
+    & .slick-list
+      overflow: visible
+    &_item
+      margin-right: 10px
+      &:nth-of-type(2)
+        margin-top: 40px
+      &:nth-of-type(3)
+        margin-top: 80px
+    &_image
+      margin: 0 auto
+      width: 41px
+      height: 41px
+      padding: 20px
+      border-radius: 50%
+      background-color: #fff
+      box-sizing: content-box
+      box-shadow: 0 0 20px 0 rgba($accent, .15)
+      position: relative
+      z-index: 2
+    &_desc
+      margin-top: -40px
+      padding-top: 50px
+      padding-left: 27px
+      padding-right: 27px
+      background-color: #fff
+      color: $accent
+      font-weight: 600
+      font-size: 1.2em
+      height: 228px
+      text-align: center
+      border-radius: 7px
+      position: relative
+      &:before
+        position: absolute
+        content: ''
+        bottom: -60px
+        left: -35px
+        right: -35px
+        height: 131px
+        background-image: url('../img/shadow.png')
+        background-size: cover
+        background-repeat: no-repeat
+        z-index: -1
+
+.container-slider
+  position: absolute
+  bottom: -70px
+  left: 0
+  right: 0
+  z-index: 3
+
+.slick
+  &-slide,
+  &-active
+    outline: none
+
+h3
+  &.formTitle
+    color: #333
+    font-size: 2em
+    font-family: $proximaExBold
+    margin: 0
+    padding-top: 50px
+    padding-left: 266px
+    & span
+      color: $accent
+
+.clients-slider_item
+  padding-left: 15px
+  padding-right: 15px
+
+.section
+  position: relative
+  z-index: 2
+  &-form
+    display: none
+    background-color: #FBFBFB
+    & > .container
+      position: relative
+    &_gift
+      position: relative
+      display: table
+      left: -50px
+      &:after
+        position: absolute
+        content: ''
+        bottom: -50px
+        right: 0
+        width: 233px
+        height: 253px
+        background-image: url('../img/gift.png')
+    &_body
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+  &-circle
+    position: relative
+    display: block
+    color: inherit
+    text-decoration: none
+    outline: none
+    cursor: pointer
+    &:hover
+      & .section-circle_item
+        border-color: $green
+      & .section-circle_button
+        opacity: 1
+      & .section-circle_body span
+        color: $green
+    &.active
+      & .section-circle_item
+        background-color: $green
+        border-color: $green
+      & .section-circle_body span
+        color: $green
+      & .section-circle_button
+        opacity: 1
+    &_item
+      width: 250px
+      margin: 0 auto
+      position: relative
+      border: 5px solid $accent
+      border-radius: 50%
+      transition: ease all 150ms
+      background-color: #fff
+    &_spacer
+      width: 100%
+    &_image
+      display: flex
+      position: absolute
+      top: 0
+      bottom: 0
+      left: 0
+      right: 0
+      text-align: center
+      justify-content: center
+      align-items: center
+    &_body
+      text-align: center
+      padding-bottom: 25px
+      transition: ease all 150ms
+      & span
+        display: block
+        font-weight: 600
+        font-size: 1.8em
+        padding-top: 25px
+        padding-left: 50px
+        padding-right: 50px
+        height: 110px
+    &_button
+      opacity: 0
+      @extend .button
+  &-top
+    background-color: #fff
+    background-image: url('../img/grayscale-bg.jpg')
+    background-size: contain
+    background-repeat: no-repeat
+    padding-bottom: 30px
+    & > .container
+      padding-top: 150px
+      position: relative
+    &_pic
+      position: absolute
+      top: -60px
+      left: 0
+
+.button
+  background-color: $green
+  display: table
+  margin: 0 auto
+  line-height: 48px
+  padding-left: 30px
+  padding-right: 30px
+  border-radius: 24px
+  color: #fff
+  transition: ease all 150ms
+  font-weight: 600
+  font-size: 1.1em
+  border: none
+  box-shadow: 0 9px 15px 0 rgba($green, .75)
+  &:hover
+    cursor: pointer
+
+h2
+  text-align: center
+  font-size: 2.2em
+  font-family: $proximaExBold
+  color: #333
+  padding-left: 100px
+  padding-right: 100px
+  position: relative
+  margin-bottom: 80px
+  &:after
+    position: absolute
+    content: ''
+    bottom: -15px
+    left: calc(50% - 30px)
+    width: 60px
+    height: 6px
+    background-image: url('../img/heading-sep.png')
+  & span
+    color: $accent
+
+.giftForm
+  &-inner
+    width: 64%
+    margin: 30px auto 15px
+    display: flex
+    &:nth-of-type(2)
+      margin-top: 0
+      margin-bottom: 0
+  &-annotation
+    display: flex
+    flex: 0 0 74%
+    max-width: 74%
+    justify-content: center
+    color: #333
+  &-safe
+    display: flex
+    flex: 0 0 26%
+    max-width: 26%
+    color: #333
+    padding-left: 20px
+    white-space:  nowrap
+    position: relative
+    &::before
+      position: absolute
+      content: ''
+      top: 3px
+      left: 0px
+      width: 13px
+      height: 10px
+      background-image: url('../img/checked.png')
+  &-inputs
+    display: flex
+    flex: 0 0 37%
+    max-width: 37%
+    &:last-child
+      flex: 0 0 26%
+      max-width: 26%
+    & input
+      border: none
+      line-height: 45px
+      padding: 0 35px
+      border-radius: 23px
+      width: calc(100% - 15px)
+      font-family: inherit
+      font-size: 1.1em
+      box-shadow: 0 5px 15px 0 rgba(0,0,0, .1)
+      &:not([type="submit"])
+        &:focus
+          box-shadow: 0 5px 15px 0 rgba($green, .5)
+      &[type="submit"]
+        width: calc(100% - 30px)
+        @extend .button
+
+
+.section-reasons
+  padding-top: 50px
+  overflow: hidden
+
+.reasons-counter
+  counter-increment: list 1
+
+.reasons-item
+  display: flex
+  flex-direction: column
+  height: calc(100% - 20px)
+  padding: 40px 100px 40px 40px
+  box-shadow: 0 0 15px 1px rgba($accent, .3)
+  border-radius: 10px
+  position: relative
+  width: calc(100% - 35px)
+  &:before
+    position: absolute
+    content: ''
+    top: 0
+    right: 0
+    width: 73px
+    height: 73px
+    background-image: url('../img/counter-item.jpg')
+  &::after
+    position: absolute
+    content: counter(list)
+    top: 0
+    right: 0
+    width: 73px
+    height: 73px
+    line-height: 70px
+    padding-left: 28px
+    font-size: 4em
+    font-family: $proximaExBold
+  &_name
+    font-size: 1.6em
+    margin: 0
+  &_text
+    font-size: 1.2em
+    color: #333
+  &_icon
+    position: absolute
+    top: calc(50% - 40px)
+    right: -50px
+    width: 100px
+    height: 100px
+    border-radius: 50%
+    background-color: #fff
+    box-shadow: 0 0 15px 0 rgba($accent, .3)
+    & img
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translate(-49.5%, -49.5%)
+
+.heading-center
+  text-align: center
+  color: #333
+  margin-top: -55px
+  margin-bottom: 30px
+  font-size: 1.1em
+
+.section-services
+  margin-top: 60px
+  background-color: #FBFBFB
+  padding-top: 40px
+  padding-bottom: 90px
+
+.services-item
+  display: block
+  text-decoration: none
+  border-radius: 10px
+  overflow: hidden
+  border: 3px solid rgba($green, 0)
+  transition: ease all 150ms
+  &:hover
+    border: 3px solid rgba($green, 1)
+    & .services-item_button
+      background-color: $green
+      box-shadow: 0 15px 25px 0 rgba($green, .75)
+    & .services-item_img
+      &:before
+        background-color: rgba($green, .2)
+  &_img
+    position: relative
+    &::before
+      position: absolute
+      content: ''
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      background-color: rgba($green, 0)
+      transition: ease all 150ms
+    & img
+      width: 100%
+      display: block
+  &_body
+    display: block
+    text-decoration: none
+    padding: 30px 30px
+    color: #333
+    background-color: #fff
+  &_title
+    font-size: 1.5em
+    font-weight: 600
+  &_text
+    font-size: 1.1em
+    height: 90px
+    border-top: .3px solid transparent
+    border-bottom: .3px solid transparent
+  &_button
+    @extend .button
+    margin: 0
+    text-decoration: none
+    padding-left: 40px
+    padding-right: 40px
+    background-color: $accent
+    box-shadow: 0 15px 25px 0 rgba($accent, .75)
+
+.section-testimonials
+  padding-top: 50px
+  padding-bottom: 50px
+
+.testimonial
+  width: 70%
+  margin: -100px auto 0 !important
+  &-prev,
+  &-next
+    position: absolute
+    z-index: 2
+    top: 50%
+    width: 24px
+    height: 24px
+    cursor: pointer
+    transition: ease all 150ms
+    &:hover
+      border-color: $accent
+  &-prev
+    left: -120px
+    border-left: 2px solid #333
+    border-top: 2px solid #333
+    transform: rotate(-45deg)
+  &-next
+    right: -120px
+    border-right: 2px solid #333
+    border-top: 2px solid #333
+    transform: rotate(45deg)
+  & .slick-list
+    padding: 100px 15px 15px 15px !important
+  &-item
+    padding: 40px
+    background-color: #fff
+    box-shadow: 0 0 15px 0 rgba($accent, .25)
+    border-radius: 10px
+    position: relative
+    transition: ease all 150ms
+    font-family: $proximaCondensed
+    font-size: 1.2em
+    &::after
+      position: absolute
+      content: ''
+      right: 0
+      top: 0
+      width: 74px
+      height: 74px
+      background-image: url('../img/testimonial-icon.jpg')
+    &:not(.slick-current)
+      opacity: 0
+    &_author
+      position: relative
+    &_photo
+      border-radius: 50%
+      position: absolute
+      top: -100px
+      width: 120px
+      box-shadow: 0 0 15px 0 rgba($accent, .3)
+    &_stars
+      padding-left: 130px
+      padding-bottom: 20px
+    &_text
+      color: #333
+    &_details
+      display: inline-block
+      color: $accent
+      &:not(:last-child)
+        padding-right: 15px
+      &.name
+        font-size: 1.5em
+        font-weight: 600
+
+.section-gift
+  padding-bottom: 25px
+  & .slick-list
+    overflow: visible
+
+.section-clients
+  @extend .section-services
+
+.clients
+  text-align: center
+  background-color: #fff
+  height: 100%
+  padding: 30px
+  &-image
+    & img
+      display: inline
+  &-desc
+    color: #333
+    font-family: $proximaCondensed
+    font-size: 1.2em
+
+.section-works
+  padding-top: 50px
+
+.works
+  &-prev,
+  &-next
+    position: absolute
+    top: calc(50% - 45px)
+    width: 82px
+    height: 82px
+    background-color: rgba(255,255,255, .66)
+    border-radius: 50%
+    z-index: 5
+    cursor: pointer
+    transition: ease all 150ms
+    &:hover
+      background-color: rgba($accent, .66)
+      &::before
+        border-color: #fff
+    &::before
+      position: absolute
+      content: ''
+      top: 31px
+      width: 24px
+      height: 24px
+      transition: ease 
+  &-prev
+    left: 100px
+    &::before
+      left: 33px
+      border-top: 2px solid #333
+      border-left: 2px solid #333
+      transform: rotate(-45deg)
+  &-next
+    right: 100px
+    &::before
+      right: 33px
+      border-top: 2px solid #333
+      border-right: 2px solid #333
+      transform: rotate(45deg)
+  &-item
+    position: relative
+    margin-left: 15px
+    margin-right: 15px
+    &_body
+      position: absolute
+      bottom: 0
+      left: 0
+      right: 0
+      top: 0
+      color: #fff
+      text-align: center
+      & span
+        color: $green
+      & > p
+        text-transform: uppercase
+        font-size: 2em
+        font-weight: 600
+        padding-left: 90px
+        padding-right: 90px
+        position: relative
+        top: 50%
+        transform: translateY(-50%)
+    &:not(.slick-current)
+      opacity: 0.5
+    &.slick-current
+      &::before
+        position: absolute
+        content: ''
+        top: 0
+        left: 0
+        bottom: 0
+        right: 0
+        background-color: rgba(0,0,0, .5)
+    &_spacer
+      width: 100%
+
+.section-form-2
+  @extend .section-clients
+  overflow: hidden
+  & > .container
+    position: relative
+    &:before
+      position: absolute
+      content: ''
+      top: 25%
+      left: -25px
+      width: 136px
+      height: 140px
+      background-image: url('../img/form-item.png')
+
+.form
+  &_order
+    &:after
+      width: 397px
+      height: 271px
+      bottom: 0
+      right: -90px
+      background-image: url('../img/form-girl-left.png')
+  &-safe
+    display: table
+    padding-left: 20px
+    margin: 0 auto
+    position: relative
+    color: #333
+    &:before
+      position: absolute
+      content: ''
+      top: 3px
+      left: 0px
+      width: 13px
+      height: 10px
+      background-image: url('../img/checked.png')
+  &-final
+    position: relative
+    z-index: 7
+  &-girl
+    position: absolute
+    bottom: -114px
+    right: -80px
+  &-select
+    display: none
+    position: absolute
+    padding-top: 15px
+    padding-bottom: 15px
+    top: calc(100% + 15px)
+    left: 0
+    right: 15px
+    z-index: 6
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, .1)
+    border-radius: 20px
+    background-color: #fff
+    overflow: hidden
+    &_option
+      padding: 9px 35px
+      font-weight: 600
+      cursor: pointer
+      &:hover
+        background-color: #f7f7f7
+  &-inputs
+    position: relative
+    &.select
+      &:before
+        position: absolute
+        content: ''
+        right: 33px
+        top: 20px
+        width: 0
+        height: 0
+        border-style: solid
+        border-width: 10px 6.5px 0 6.5px
+        border-color: #1e8fc8 transparent transparent transparent
+  &-input
+    border: none
+    line-height: 45px
+    padding: 0 35px
+    border-radius: 23px
+    width: calc(100% - 15px)
+    font-family: inherit
+    font-size: 1.1em
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.1)
+    &.input-select
+      color: $accent
+      font-weight: 600
+    &:disabled
+      background-color: #fff
+      cursor: pointer
+  &-button
+    @extend .button
+    margin-top: 25px
+    margin-bottom: 15px
+    padding-left: 55px
+    padding-right: 55px
+
+.section-seo
+  text-align: center
+  color: #333
+  font-size: 15px
+  padding-top: 40px
+  padding-bottom: 40px
+  & h4
+    margin: 0
+    font-size: 1.6em
+    font-weight: 600
+  & a
+    color: $green
+
+.section
+  &-footer
+    position: relative
+    &_body
+      position: relative
+    &_map
+      height: 400px
+    &_inner
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      color: #fff
+      z-index: 5
+      font-size: 15px
+      & > .container
+        position: relative
+        color: #fff
+        z-index: 7
+        height: 100%
+      & h3
+        margin: 0
+        padding-top: 60px
+        padding-bottom: 30px
+        & span
+          color: $green
+      &:before
+        position: absolute
+        content: ''
+        left: 0
+        top: 0
+        bottom: 0
+        width: 44%
+        background-color: rgba(0,0,0, .85)
+        z-index: 5
+        border-top-right-radius: 200px
+        border-bottom-right-radius: 200px
+      &:after
+        position: absolute
+        content: ''
+        top: 90px
+        left: 0
+        width: 44%
+        height: 1px
+        background-color: rgba(255,255,255, .2)
+        z-index: 6
+
+.privacy
+  color: #777
+
+.footer
+  &-socials
+    position: absolute
+    top: 38%
+    left: 390px
+  &-contacts
+    &_item
+      position: relative
+      font-size: 1.1em
+      &:before
+        position: absolute
+        content: ''
+        top: 5px
+        left: 0
+        width: 18px
+        height: 18px
+        background-repeat: no-repeat
+      &.tel:before
+        background-image: url('../img/phone-icon.png')
+        background-size: contain
+      &.address:before
+        background-image: url('../img/address-icon.png')
+        background-size: contain
+      &.mail:before
+        background-image: url('../img/mail-icon.png')
+        background-size: contain
+      & a,
+      & span
+        color: #fff
+        text-decoration: none
+        padding: 5px 5px 5px 30px
+        display: table
+
+.footer-body
+  height: 100%
+  position: relative
+
+.container-body
+  position: relative
+  z-index: 5
+
+.header-top
+  &_detailTitle
+    text-align: center
+    font-size: 3em
+    font-weight: 100
+    & > b
+      font-family: $proximaExBold
+  &_detailDesc
+    text-align: center
+    padding: 0 15%
+    font-size: 1.2em
+
+.header-top_short
+  height: 615px
+
+.container-detail
+  padding-top: 240px
+  position: relative
+
+.detail
+  &-info
+    padding: 49px
+    border-radius: 10px
+    box-shadow: 0 0 20px 0 rgba($accent, .5)
+    position: relative
+    left: -50px
+    width: calc(100% + 50px)
+    z-index: 4
+    background-color: #fff
+    &_price
+      font-size: 2em
+      font-weight: 600
+      & b
+        font-family: $proximaBlack
+        font-size: 1.5em
+    &_desc
+      color: #333
+      font-size: 1.4em
+      font-weight: 600
+  &-image
+    overflow: hidden
+    border-radius: 10px
+    position: relative
+    &:before,
+    &:after
+      position: absolute
+      content: ''
+      top: 0
+      bottom: 0
+      left: 0
+      right: 0
+    &:after
+      left: calc(100% - 200px)
+      background: -moz-linear-gradient(left,  rgba(30,144,200,0) 0%, rgba(30,144,200,0) 1%, rgba(30,144,200,1) 100%)
+      background: -webkit-linear-gradient(left,  rgba(30,144,200,0) 0%,rgba(30,144,200,0) 1%,rgba(30,144,200,1) 100%)
+      background: linear-gradient(to right,  rgba(30,144,200,0) 0%,rgba(30,144,200,0) 1%,rgba(30,144,200,1) 100%)
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e90c8', endColorstr='#1e90c8',GradientType=1 )
+    &:before
+      background-color: rgba(0,0,0, .3)
+    & img
+      width: 100%
+      height: 100%
+      object-fit: cover
+      display: block
+    
+.section-detail
+  @extend .section-top
+  padding-top: 80px
+  padding-bottom: 50px
+  height: auto
+  & > .container
+    padding-top: 0
+  
+.header-detail
+  position: relative
+  margin: 25px auto 0
+  & > .container
+    width: 800px
+  &_item
+    text-align: center
+    & > img
+      display: inline
+    & span
+      display: block
+      font-weight: 600
+      margin-top: 15px
+      font-size: 1.1em
+
+.section-uborka
+  display: block
+  text-align: center
+  text-decoration: none
+  color: inherit
+  &:hover
+    & .section-uborka_image
+      border-color: $green
+    & .section-uborka_button
+      background-color: $green
+      box-shadow: 0 10px 15px 0 rgba($green, .5)
+    & .section-uborka_name
+      color: $green
+  &_button
+    @extend .button
+    text-decoration: none
+    padding-left: 40px
+    padding-right: 40px
+    background-color: $accent
+    box-shadow: 0 10px 15px 0 rgba($accent, .5)
+  &_name
+    margin-top: 15px
+    margin-bottom: 15px
+    font-size: 1.4em
+    font-weight: 600
+    height: 50px
+    transition: ease all 150ms
+  &_image
+    border: 5px solid $accent
+    border-radius: 50%
+    overflow: hidden
+    transition: ease all 150ms
+    & img
+      display: block
+      width: 100%
+      height: 100%
+      object-fit: cover
+
+.section-certs
+  @extend .section-services
+
+.certs
+  &-item
+    text-align: center
+    & > img
+      display: inline
+  &-prev,
+  &-next
+    background-color: $accent
+    &:before
+      border-color: #fff
+      top: 29px
+  &-prev
+    @extend .works-prev
+    left: -20px
+  &-next
+    @extend .works-next
+    right: -20px
+
+.spec-raboty
+  display: block
+  text-decoration: none
+  color: #fff
+  &:hover
+    .spec-raboty_button
+      background-color: $green
+      box-shadow: 0 10px 15px 0 rgba($green, .5)
+    .spec-raboty_label
+      background: -moz-linear-gradient(top,  rgba(148,204,47,0) 0%, rgba(148,204,47,1) 50%, rgba(148,204,47,0) 100%)
+      background: -webkit-linear-gradient(top,  rgba(148,204,47,0) 0%,rgba(148,204,47,1) 50%,rgba(148,204,47,0) 100%)
+      background: linear-gradient(to bottom,  rgba(148,204,47,0) 0%,rgba(148,204,47,1) 50%,rgba(148,204,47,0) 100%)
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0094cc2f', endColorstr='#0094cc2f',GradientType=0 )
+  &_button
+    @extend .button
+    background-color: $accent
+    box-shadow: 0 10px 15px 0 rgba($accent, .5)
+    position: relative
+    top: -22px
+  &_label
+    display: flex
+    justify-content: center
+    align-items: center
+    position: absolute
+    top: calc(50% - 50px)
+    left: 0
+    right: 0
+    height: 100px
+    text-align: center
+    background: -moz-linear-gradient(top,  rgba(30,144,200,0) 0%, rgba(30,144,200,1) 50%, rgba(30,144,200,0) 100%)
+    background: -webkit-linear-gradient(top,  rgba(30,144,200,0) 0%,rgba(30,144,200,1) 50%,rgba(30,144,200,0) 100%)
+    background: linear-gradient(to bottom,  rgba(30,144,200,0) 0%,rgba(30,144,200,1) 50%,rgba(30,144,200,0) 100%)
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e90c8', endColorstr='#001e90c8',GradientType=0 )
+    transition: ease background 150ms
+    & span
+      display: flex
+      font-size: 1.6em
+      font-family: $proximaExBold
+      padding-left: 70px
+      padding-right: 70px
+  &_placeholder
+    position: relative
+    border-radius: 10px
+    & img
+      width: 100%
+      display: block
+
+.event-onmodal
+  overflow: hidden
+
+.modal-block
+  display: none
+  position: fixed
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  background-color: rgba(0,0,0, .85)
+  z-index: 15
+  &_form
+    width: 260px
+    margin: 0 auto
+  &_label
+    margin: 15px 0
+  &_input
+    font-family: inherit
+    font-size: 1em
+    &[type="submit"]
+      @extend .button
+    &[type="text"]
+      width: 100%
+      border: none
+      line-height: 45px
+      padding-left: 30px
+      border-radius: 23px
+  &_close
+    cursor: pointer
+    position: absolute
+    top: -45px
+    right: -45px
+    width: 44px
+    height: 44px
+    border: 3px solid $green
+    border-radius: 50%
+    &:hover
+      animation: callback .5s ease-in-out alternate
+    &:before,
+    &:after
+      position: absolute
+      content: ''
+      height: 2px
+      left: 5px
+      right: 5px
+      background-color: $green
+      top: calc(50% - 2px)
+    &:before
+      transform: rotate(135deg)
+    &:after
+      transform: rotate(-135deg)
+  &_safe
+    @extend .giftForm-safe
+    color: #888
+    display: table
+    margin: 15px auto 0
+  &_wrapper
+    display: none
+    position: absolute
+    top: 150px
+    right: 0
+    left: 0
+    max-width: 660px
+    margin: 0 auto
+    color: #fff
+    font-size: 1.2em
+    padding: 60px
+    border: 3px solid $green
+    border-radius: 10px
+  &_title
+    text-transform: uppercase
+    font-size: 1.2em
+    text-align: center
+    margin-bottom: 30px
+    font-family: $proximaExBold
+    & span
+      color: $green
+
+.header-burger
+  display: none
+  width: 22px
+  height: 20px
+  //background-color: rgba(255,255,255, .1)
+  position: absolute
+  right: 0px
+  top: 10px
+  cursor: pointer
+  & > span
+    position: absolute
+    left: 0
+    right: 0
+    height: 4px
+    background-color: #fff
+    border-radius: 10px
+    &:nth-of-type(2)
+      top: 7px
+    &:nth-of-type(3)
+      top: 14px
+
+@keyframes callback
+  0%
+    transform: rotate(0deg)
+  25%
+    transform: rotate(-25deg)
+  50%
+    transform: rotate(25deg)
+  100%
+    transform: rotate(0deg)
+
+.slick-dots
+  margin-top: 15px
+  margin-bottom: 15px
+  position: static
+  & > li
+    width: 15px
+    height: 15px
+    margin: 1px
+    & > button
+      width: 15px
+      height: 15px
+      &:before
+        top: 0
+        right: 0
+        bottom: 0
+        left: 0
+        width: auto
+        height: auto
+        content: ''
+        background-color: $accent
+        border-radius: 50%
+
+.showmenu
+  left: 0 !important
+
+.header-mobileNav
+  //display: none
+  position: fixed
+  top: 0
+  bottom: 0
+  left: -100%
+  width: 75%
+  background-color: $accent
+  color: #fff
+  z-index: 15
+  padding: 30px 15px 30px 0
+  box-shadow: 0 0 15px 0 rgba(0,0,0, .25)
+  transition: ease all 300ms
+  &_close
+    position: absolute
+    top: 30px
+    right: 30px
+    width: 35px
+    height: 35px
+    background-color: rgba(255,255,255, .15)
+    cursor: pointer
+    border-radius: 3px
+    &:after,
+    &:before
+      position: absolute
+      content: ''
+    &:before
+      top: calc(50% - 6px)
+      left: 10px
+      width: 12px
+      height: 12px
+      border-top: 2px solid #fff
+      border-left: 2px solid #fff
+      transform: rotate(-45deg)
+    &:after
+      right: 8px
+      left: 10px
+      height: 2px
+      background-color: #fff
+      top: calc(50% - 1px)
+  &Listsub
+    list-style-type: none
+    margin: 0 0 0 25px
+    padding: 0
+    & > li
+      & > a
+        position: relative
+        display: block
+        font-weight: 400
+        color: #fff
+        padding: 10px
+        text-decoration: none
+        font-size: 2.5vw
+        &:before
+          position: absolute
+          top: 0
+          left: -10px
+          bottom: 0
+          line-height: 1.5em
+          content: '.'
+          font-size: 2.5vw
+  &List
+    list-style-type: none
+    margin: 0 0 0 25px
+    padding: 0
+    & > li
+      & > a
+        display: block
+        color: #fff
+        text-decoration: none
+        font-weight: 600
+        padding: 10px
+        font-size: 2.5vw
+
+@import 'media'
